@@ -1,12 +1,39 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/choose/choose",
+    "pages/shopCar/shopCar",
+    "pages/personal/personal"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "必胜客欢乐餐厅",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home-active.png",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/choose/choose",
+      "iconPath": "images/choose.png",
+      "selectedIconPath": "images/choose-active.png",
+      "text": "点单"
+    }, {
+      "pagePath": "pages/shopCar/shopCar",
+      "iconPath": "images/shopping.png",
+      "selectedIconPath": "images/shopping-active.png",
+      "text": "购物车"
+    }, {
+      "pagePath": "pages/personal/personal",
+      "iconPath": "images/person.png",
+      "selectedIconPath": "images/person-active.png",
+      "text": "个人中心"
+    }],
+    "selectedColor":"red",
+    "borderStyle":"white"
   }
 }
