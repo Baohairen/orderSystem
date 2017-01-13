@@ -1,10 +1,20 @@
 <!--index.wxml-->
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<swiper indicator-dots autoplay>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="flex-wrp">
+	<view class="flex-item"><image src="../../images/pack.png"/>外卖订餐</view>
+	<view class="flex-item"><image src="../../images/eat.png"/>自助点餐</view>
 </view>
+<view class="info">
+	<view class="infos" wx:for="{{martInfos}}">
+		<text class="infoLeft" >{{item.left}}</text>
+		<text class="infoRight">{{item.right}}</text>
+	</view>	
+</view>
+
+
