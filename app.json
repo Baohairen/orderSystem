@@ -1,15 +1,16 @@
 {
   "pages":[
+    "pages/personal/personal",
     "pages/index/index",
     "pages/choose/choose",
     "pages/shopCar/shopCar",
-    "pages/personal/personal"
+    "pages/map/map"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "必胜客欢乐餐厅",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"#fff"
   },
   "tabBar": {
     "list": [{

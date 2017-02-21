@@ -8,3 +8,19 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+page{
+  background: rgb(237,237,237);
+  height: 100%;
+}
+text{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 34rpx;
+}
+.colors{
+  color: #888;
+}
+text.red{
+  color: red;
+  margin-right: 6rpx;
+}

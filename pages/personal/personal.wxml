@@ -1,0 +1,65 @@
+<!--personal.wxml-->
+<view>
+  <view  class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <view class="username">
+      <text>{{userInfo.nickName}}</text>
+    </view>
+    <view class="something">
+      <view>
+        <image src="http://ol58x6i5t.bkt.clouddn.com/images/app/vip.png"></image>
+        <text>普通会员</text>
+      </view>
+      <view>
+        <image src="http://ol58x6i5t.bkt.clouddn.com/images/app/personalcenter.png"></image>
+        <text>个人主页</text>
+      </view>
+    </view>
+  </view>
+  <view class="order">
+    <view class="firstLine">
+      <text>我的订单</text>
+      <text class="all">全部订单  > </text>
+    </view>
+    <view class="flex-wrp">
+      <view class="flex-item" id="0" bindtap="toChoose">
+        <image src="../../images/pack.png"></image>外卖订单
+      </view>
+      <view>
+        <image src="../../images/eat1.png"/>堂食订单
+      </view>
+      <view class="flex-item" id="1" bindtap="toChoose">
+        <image src="../../images/comment.png"/>待评价
+      </view>
+    </view>
+  </view>
+  <view class="servies">
+    <view>
+      <view class="img_view">
+        <image src="../../images/collect.png"></image>
+      </view>
+      <view>
+        我的收藏
+        <text>></text>
+      </view>
+    </view>
+    <view>
+      <view class="img_view">
+        <image src="../../images/address.png"></image>
+      </view>
+      <view>
+        我的地址
+        <text>></text>
+      </view>
+    </view>
+    <view>
+      <view class="img_view">
+        <image src="../../images/vip.png"></image>
+      </view>
+      <view>
+        会员中心
+        <text>></text>
+      </view>
+    </view>
+  </view>
+</view>

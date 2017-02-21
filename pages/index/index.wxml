@@ -1,20 +1,31 @@
 <!--index.wxml-->
 <swiper indicator-dots autoplay>
-  <block wx:for="{{imgUrls}}">
+  <block wx:for="{{imgUrls}}" wx:key="imgUrl">
     <swiper-item>
       <image src="{{item}}" class="slide-image"/>
     </swiper-item>
   </block>
 </swiper>
 <view class="flex-wrp">
-	<view class="flex-item"><image src="../../images/pack.png"/>外卖订餐</view>
-	<view class="flex-item"><image src="../../images/eat.png"/>自助点餐</view>
+	<view class="flex-item" id="0" bindtap="toChoose"><image src="../../images/pack.png"></image>外卖订餐</view>
+	<view class="flex-item" id="1" bindtap="toChoose"><image src="../../images/eat.png"/>自助点餐</view>
 </view>
 <view class="info">
-	<view class="infos" wx:for="{{martInfos}}">
-		<text class="infoLeft" >{{item.left}}</text>
+	<view class="infos" wx:for="{{martInfos}}" wx:key="martInfos">
+    <text class="infoLeft firstLine" wx:if="{{!item.right}}">{{item.left}}</text>
+		<text class="infoLeft" wx:else >{{item.left}}</text>
 		<text class="infoRight">{{item.right}}</text>
+    <image src="../../images/tel.png" class="litte_img" wx:if="{{item.right==='0512-68186015'}}" bindtap="tel"/>
+    <image src="../../images/location.png" class="litte_img" wx:if="{{item.right==='高新区长江路463号绿宝广场一层'}}" bindtap="location"/>
 	</view>	
 </view>
-
-
+<view class="comment">
+  <text class="firstLine">最新评论</text>
+  <text class="more">更多 ></text>
+  <view wx:for="{{comments}}" wx:key="comments" class="person">
+    <text>{{item.name}}</text>
+    <text class="more">{{item.star}}</text>
+    <view class="colors">{{item.contents}}</view>
+    <text class="time colors">{{item.time}}</text>
+  </view>
+</view>

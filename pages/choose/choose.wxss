@@ -1,0 +1,241 @@
+/*选购页面样式*/
+.choose{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+text{
+  height: 64rpx;
+  line-height: 64rpx;
+}
+.nav_left{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+}
+.nav_left .nav_left_items{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 34rpx;
+  text-align: center;
+}
+.nav_left .nav_left_items.active{
+  background-color: white;
+  color: red;
+}
+.nav_right{
+  position: absolute;
+  left: 25%;
+  top: 0;
+  display: inline-block;
+  width: 75%;
+  height: 100%;
+  background-color: white;
+}
+.nav_right .good_list{
+  padding-top: 14rpx;
+  border-bottom: 2rpx solid #eee;
+  height: 180rpx;
+  padding: 0 16rpx;
+  position: relative;
+}
+.nav_right .good_list .img_view{
+  width: 180rpx;
+  height: 180rpx;
+  display: inline-block;
+  padding: 10rpx;
+  box-sizing:border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.nav_right .good_list .img_view .taste{
+  position: absolute;
+  left: 10rpx;
+  top: 10rpx;
+  padding: 0 20rpx;
+  background-color: rgb(255,144,15);
+  color: white;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+}
+.nav_right .good_list .img_view image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.nav_right .good_list .goods_infos{
+  width: 64%;
+  height: 180rpx;
+  margin-left: 10rpx;
+  display: inline-block;
+  position: absolute;
+  left: 200rpx;
+  top: 0;
+}
+.nav_right .good_list .goods_infos .price{
+  position: absolute;
+  bottom: 10rpx;
+}
+.title{
+  font-weight: bold;
+  display: block;
+  margin: 10rpx 0;
+  font-size: 29rpx;
+}
+.little_height{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+.describe{
+  color: #888;
+  font-size: 27rpx;
+}
+.num_view{
+  display: inline-block;
+}
+.toRight{
+  display: block;
+  position: absolute;
+  right: 5%;
+  bottom: 16rpx;
+}
+.radis{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 100%;
+  border: 1rpx solid #888;
+  text-align: center;
+  line-height: 30rpx;
+  font-size: 30rpx;
+  margin: 0 10rpx;
+  font-weight: bold;
+  display: inline-block;
+  color:#888;
+}
+.num{
+  display: inline-block;
+  height: 29rpx;
+  line-height: 29rpx; 
+}
+#plus{
+  border-color:red;
+  color: red;
+}
+/*产品详情*/
+.back{
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.foods_info{
+  width: 92%;
+  height: 90%;
+  position: absolute;
+  left: 4%;
+  top: 5%;
+  background-color: white;
+  z-index: 11;
+  box-sizing:border-box;
+  padding: 20rpx;
+}
+.foods_info .titles{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.foods_info .titles text{
+  float: right;
+}
+.foods_info image{
+  width: 400rpx;
+  height: 400rpx;
+  margin: 0 auto;
+  display: block;
+}
+.foods_info .price{
+  font-weight: normal;
+  height:64rpx;
+  line-height:64rpx;
+  font-size: 34rpx;
+}
+.foods_info text{
+  display: block;
+}
+.foods_info text.red{
+  display: inline-block;
+}
+.foods_info .food_infos{
+  height: 54rpx;
+  line-height: 54rpx;
+}
+/*底部购物车展示*/
+.shop_car{
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(255,0,0,0.7);
+  width: 100%;
+  height: 118rpx;
+  line-height: 118rpx;
+  padding: 19rpx 40rpx;
+  box-sizing:border-box;
+}
+.shop_car view{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: white;
+}
+.shop_car .length{
+  width: 80rpx;
+  height: 80rpx;
+  background-color: white;
+  border-radius: 100%;
+  position: relative;
+  display: inline-block;
+}
+.shop_car .length image{
+  width: 46rpx;
+  height: 46rpx;
+  position: absolute;
+  top: 17rpx;
+  left: 17rpx;
+}
+.shop_car .length text{
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  text-align: center;
+  background-color: rgb(255,144,15);
+  border-radius: 100%;
+  position: absolute;
+  top: -12rpx;
+  right: -12rpx;
+}
+.shop_car .all_price{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  position: relative;
+  top: -20rpx;
+  left: 26rpx;
+}
+.shop_car .all_price text{
+  font-size: 38rpx;
+}
+.shop_car .toRight text{
+  padding: 16rpx 26rpx;
+  border-radius: 40rpx;
+  background-color: white;
+  color: red;
+  position: relative;
+  top: -5rpx;
+}

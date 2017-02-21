@@ -1,0 +1,119 @@
+<view wx:if="{{model==='0'}}" class="container">
+  <image src="../../images/shopping.png" class="nofood"></image>
+  <text class="colors">购物车为空哦，快去选购吧</text>
+</view>
+<view wx:if="{{model==='1'}}">
+  <view class="header">
+    <text class="left {{shops}}" bindtap="shops">商家配送</text>
+    <text class="right {{self}}" bindtap="self">到店自取</text>
+  </view>
+  <view wx:if="{{shops==='active'}}">
+    <view class="address">
+      <view>
+        <text class="leftInfo">联系人：</text>
+        <text class="rightInfo">{{address.person}}</text>
+      </view>
+      <view>
+        <text class="leftInfo">联系电话：</text>
+        <text class="rightInfo">{{address.phone}}</text>
+      </view>
+      <view>
+        <text class="leftInfo">联系地址：</text>
+        <text class="rightInfo">{{address.address}}</text>
+      </view>
+      <image src="../../images/location1.png"></image>
+    </view>
+    <view class="pay">
+      <text class="leftInfo">支付方式</text>
+      <text class="leftInfo payway {{payway.online}}" id="online" bindtap="switchs">在线支付</text>
+      <text class="leftInfo payway {{payway.offline}}" id="offline" bindtap="switchs">货到付款</text>
+    </view>
+    <view class="goods">
+      <view class="good_list" wx:for="{{goods_info}}" wx:key="goods_info">
+        <image src="{{item.imgurl}}"></image>
+        <view class="goods_infos">
+          <text class="title">{{item.name}}</text>
+          <view><text class="red">¥ {{item.price}}</text><text>/份</text></view>
+          <view class="toRight">
+            <text class="radis" id="minus_0_{{item.number}}" bindtap="minus">-</text>
+            <text class="num">{{item.num}}</text>
+            <text class="radis border_active" id="plus_0_{{item.number}}" bindtap="plus">+</text>
+          </view>
+        </view>
+      </view>
+      <view><text>商品总价：¥{{good_price}}</text></view>
+      <view><text>配送费 6 元（满99可免运费）</text></view>
+    </view>
+    <view class="remark">
+      <view>
+        <text class="leftInfo">订单备注</text>
+        <textarea auto-height/>
+      </view>
+    </view>
+    <view class="reds">
+      <text class="leftInfo">应付金额：</text>
+      <text class="rightInfo">¥ {{full_price}}</text>
+    </view>
+    <button class="submit">提交订单</button>
+  </view>
+  <view wx:if="{{self==='active'}}">
+    <view class="address">
+      <view>
+        <text class="leftInfo">联系人：</text>
+        <textarea auto-height/>
+      </view>
+      <view>
+        <text class="leftInfo">电话：</text>
+        <textarea auto-height/>
+      </view>
+      <view>
+        <text class="leftInfo">自提时间：</text>
+        <picker mode="date" value="{{date}}" start="2017-03-01" end="2017-07-01" bindchange="bindDateChange">
+          <view class="picker">{{date}}</view>
+          <view class="tip">
+            <view class="arrow"></view>
+          </view>
+        </picker>
+        <text class="leftInfo"></text>
+        <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+          <view class="picker">{{time}}</view>
+          <view class="tip">
+            <view class="arrow"></view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="pay">
+      <text class="leftInfo">支付方式</text>
+      <text class="leftInfo payway {{payway.online}}" id="online" bindtap="switchs">在线支付</text>
+      <text class="leftInfo payway {{payway.offline}}" id="offline" bindtap="switchs">货到付款</text>
+    </view>
+    <view class="goods">
+      <view class="good_list" wx:for="{{goods_info}}" wx:key="goods_info">
+        <image src="{{item.imgurl}}"></image>
+        <view class="goods_infos">
+          <text class="title">{{item.name}}</text>
+          <view><text class="red">¥ {{item.price}}</text><text>/份</text></view>
+          <view class="toRight">
+            <text class="radis" id="minus_1_{{item.number}}" bindtap="minus">-</text>
+            <text class="num">{{item.num}}</text>
+            <text class="radis border_active" id="plus_1_{{item.number}}" bindtap="plus">+</text>
+          </view>
+        </view>
+      </view>
+    <view><text>商品总价：¥{{good_price}}</text></view>
+    <view><text>配送费 6 元（满99可免运费）</text></view>
+    </view>
+    <view class="remark">
+      <view>
+        <text class="leftInfo">订单备注</text>
+        <textarea auto-height/>
+      </view>
+    </view>
+    <view class="reds">
+      <text class="leftInfo">应付金额：</text>
+      <text class="rightInfo">¥ {{full_price}}</text>
+    </view>
+    <button class="submit">提交订单</button>
+  </view>
+</view>

@@ -1,0 +1,53 @@
+<view class="choose">
+  <scroll-view scroll-y="true" class="nav_left">
+    <block wx:for="{{navLeftItems}}" wx:key="foodnum">
+      <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" id="{{item.id}}">{{item.name}}</view>
+    </block>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="nav_right">
+    <view wx:if="{{navRightItems}}">
+      <view class="good_list" wx:for="{{navRightItems}}" wx:key="goods_info">
+        <view class="img_view" data-id="{{item.foodid}}" bindtap="foodsInfo">
+          <text hidden="{{!item.taste}}" class="taste">{{item.taste}}</text>
+          <image src="{{item.logourl}}"></image>
+        </view>
+        <view class="goods_infos">
+          <text class="title">{{item.title}}</text>
+          <text hidden="{{!item.describe}}" class="describe little_height">{{item.describe}}</text>
+          <view class="price"><text class="red little_height">¥ {{item.price}}</text><text class="little_height">/份</text></view>
+          <view class="toRight" wx:for="{{foodlist}}" wx:for-item="list" wx:for-index="i" wx:if="{{item.foodid==list.foodid}}" wx:key="allfood" >
+            <view class="num_view" wx:if="{{list.num}}">
+              <text class="radis" id="minus" bindtap="minus" data-id="{{list.foodid}}" data-index="{{i}}">－</text>
+              <text class="num">{{list.num}}</text>
+            </view>
+            <text class="radis" id="plus" bindtap="plus" data-index="{{i}}">＋</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="container">暂无数据</view>
+  </scroll-view>
+  <view class="shop_car">
+    <view class="length">
+      <image src="../../images/shopping-active.png"></image>
+      <text>{{orderlist.length}}</text>
+    </view>
+    <view class="all_price">
+      <text>总价：¥ {{fullprice}}</text>
+    </view>
+    <view class="toRight">
+      <text bindtap="chooseOk">选好了</text>
+    </view>
+  </view>
+  <view hidden="{{foodinfo.length==0}}">
+    <view class="back"></view>
+    <view class="foods_info">
+      <view class="titles">{{foodinfo.title}}<text bindtap="close">X</text></view>
+      <image src="{{foodinfo.logourl}}"></image>
+      <view class="price">价格：<text class="red">{{foodinfo.price}}元/份</text></view>
+      <text wx:if="{{foodinfo.taste!=null}}">评价：{{foodinfo.taste}}</text>
+      <text wx:if="{{foodinfo.describe!=null}}">描述：{{foodinfo.describe}}</text>
+      <text class="food_infos">详情：{{foodinfo.foodinfo}}</text>
+    </view>
+  </view>
+</view>

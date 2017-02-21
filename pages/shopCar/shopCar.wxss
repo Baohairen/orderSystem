@@ -1,0 +1,174 @@
+/*空*/
+.nofood{
+  width: 200rpx;
+  height: 200rpx;
+}
+.colors{
+  font-size: 40rpx;
+}
+/*外卖*/
+.header{
+  width: 50%;
+  padding: 10rpx 25%;
+  height: 80rpx;
+  margin-bottom: 6rpx;
+}
+.header text{
+  display: block;
+  float: left;
+  width: 49%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  background-color: white;
+  color: red;
+  text-align: center;
+  border: 1rpx solid red;
+}
+.header .left{
+  border-right: none;
+}
+.header .right{
+  border-left: none;
+}
+.header .active{
+  background-color: red;
+  color: white;
+}
+.address{
+  background-color: white;
+  padding: 28rpx;
+  position: relative;
+}
+text{
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.leftInfo{
+  width: 25%;
+}
+.rightInfo{
+  width: 75%;
+}
+.address image{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  top: 50%;
+  right: 5%;
+  margin-top: -40rpx;
+}
+.pay{
+  background-color: white;
+  padding: 14rpx 28rpx; 
+  margin: 28rpx 0;
+}
+.pay .payway{
+  border: 1rpx solid #eee;
+  text-align: center;
+  margin-right: 3%;
+}
+.border_active{
+  border: 1rpx solid red!important;
+  color: red;
+}
+.goods{
+  background-color: white;
+  padding: 0 28rpx;
+}
+.good_list{
+  padding-top: 14rpx;
+  border-bottom: 2rpx solid #eee;
+  position: relative;
+}
+.good_list image{
+  width: 110rpx;
+  height: 110rpx;
+  display: inline-block;
+}
+.good_list .goods_infos{
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.goods_infos .title{
+  display: block;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+}
+.toRight{
+  display: block;
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+}
+.radis{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 100%;
+  border: 1rpx solid #eee;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 44rpx;
+  margin: 0 10rpx;
+  font-weight: bold;
+}
+.remark{
+  background-color: white;
+  padding: 10rpx 28rpx;
+  margin: 28rpx 0;
+}
+textarea{
+  width: 60%;
+  border-radius: 10rpx;
+  display: inline-block;
+  border: 2rpx solid #eee;
+  position: relative;
+  top: 12rpx;
+  text-indent: 8rpx;
+}
+.reds{
+  padding: 0 28rpx;
+}
+.reds .rightInfo{
+  color: red;
+}
+.submit{
+  margin:28rpx;
+  background-color: red;
+  color: white;
+}
+picker{
+  display: inline-block;
+  position: relative;
+  top: 8rpx;
+  width: 69%;
+  border: 2rpx solid red;
+  border-radius: 8rpx;
+  height: 60rpx;
+  line-height: 66rpx;
+  text-indent: 8rpx;
+  background-color: #eee;
+}
+picker .tip{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+}
+picker .tip .arrow{
+  width: 0;
+  height: 0;
+  border-left: 12rpx solid transparent;
+  border-right: 12rpx solid transparent;
+  border-top: 12rpx solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -6rpx;
+  margin-left: -12rpx;
+}
