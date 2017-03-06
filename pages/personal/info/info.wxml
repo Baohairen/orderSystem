@@ -1,0 +1,28 @@
+<view class="section">
+  <form bindsubmit="formSubmit">
+    <view>
+      <text class="left">顾客ID：</text>
+      <text class="right red">{{userInfo.userid}}</text>
+    </view>
+    <view>
+      <text class="left">姓名：</text>
+      <input type="text" class="right" name="username" value="{{userInfo.username}}" placeholder="请输入姓名" />
+    </view>
+    <view>
+      <text class="left">性别：</text>
+      <radio-group class="radio-group right" name="gender">
+        <label><radio value="男" checked="{{userInfo.gender=='男'}}"/>男</label>
+        <label><radio value="女" checked="{{userInfo.gender=='女'}}"/>女</label>
+      </radio-group>
+    </view>
+    <view>
+      <text class="left">联系电话：</text>
+      <input type="text" name="phone" placeholder="请输入联系电话" class="right" maxlength="11" value="{{userInfo.phone}}"/>
+    </view>
+    <view class="textarea">
+      <textarea name="address" placeholder="请输入联系地址" value="{{userInfo.address}}"></textarea>
+      <text class="left">联系地址：</text>
+    </view>
+    <button formType="submit">保存信息</button>
+  </form>
+</view>

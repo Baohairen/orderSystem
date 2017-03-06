@@ -1,0 +1,107 @@
+.header{
+  background-color: white;
+  padding: 0 20rpx;
+}
+.header text{
+  padding: 0 20rpx;
+  display: inline-block;
+}
+.header text.active{
+  color: red;
+  border-bottom: 6rpx solid red;
+}
+.indent_list{
+  background-color: white;
+  margin: 24rpx 0;
+}
+.indent_list .title{
+  padding: 0 20rpx;
+}
+.indent_list .title text{
+  display: inline-block;
+}
+.title image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.indent_list .title .red{
+  float: right;
+}
+.good_list{
+  margin-bottom: 10rpx;
+  padding: 16rpx;
+  background-color: rgb(237,237,237);
+  position: relative;
+}
+.good_list image{
+  width: 200rpx;
+  height: 200rpx;
+  display: inline-block;
+}
+.good_list .goods_infos{
+  display: inline-block;
+  margin-left: 20rpx;
+  position: absolute;
+  top: 16rpx;
+  left: 216rpx;
+  width: 70%;
+}
+.good_list .goods_infos .titles{
+  display: inline-block;
+  width: 70%;
+  font-size: 36rpx;
+}
+.good_list .goods_infos .price{
+  display: inline-block;
+  float: right;
+  margin-right: 30rpx; 
+}
+.good_list .goods_infos .price text{
+  font-weight: bolder;
+  font-size: 36rpx;
+}
+.good_list .goods_infos .price .num{
+  color: #888;
+  display: block;
+  margin-left: 28rpx;
+}
+.good_list .goods_infos text{
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.goods_infos .title{
+  display: block;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+}
+.allPrice{
+  width: 100%;
+  text-align: right;
+  border-bottom: 1rpx solid #eee;
+}
+.allPrice text{
+  margin-right: 30rpx;
+}
+.btn{
+  width: 50%;
+  margin-left: 46%;
+  height: 110rpx;
+}
+.btn text{
+  width: 44%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  display: inline-block;
+  font-size:32rpx;
+  border: 1rpx solid #888;
+  margin-right: 4%;
+  float: right; 
+}
+.comment{
+  margin-right: 1%;
+}

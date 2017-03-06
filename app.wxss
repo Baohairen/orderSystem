@@ -24,3 +24,6 @@ text.red{
   color: red;
   margin-right: 6rpx;
 }
+.input-placeholder{
+  font-size: 30rpx;
+}

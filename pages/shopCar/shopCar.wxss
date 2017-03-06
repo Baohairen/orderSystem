@@ -5,6 +5,7 @@
 }
 .colors{
   font-size: 40rpx;
+  margin-bottom: 300rpx;
 }
 /*外卖*/
 .header{
@@ -102,23 +103,43 @@ text{
   display: block;
   position: absolute;
   right: 5%;
-  bottom: 0;
+  bottom: 16rpx;
 }
 .radis{
   width: 40rpx;
   height: 40rpx;
   border-radius: 100%;
-  border: 1rpx solid #eee;
+  border: 1rpx solid #888;
   text-align: center;
   line-height: 40rpx;
-  font-size: 44rpx;
+  font-size: 36rpx;
   margin: 0 10rpx;
   font-weight: bold;
+  display: inline-block;
+  color:#888;
+}
+.num{
+  display: inline-block;
+  height: 39rpx;
+  line-height: 39rpx; 
+  font-size: 36rpx;
+}
+#plus{
+  border-color:red;
+  color: red;
 }
 .remark{
   background-color: white;
   padding: 10rpx 28rpx;
   margin: 28rpx 0;
+}
+input.right{
+  display: inline-block;
+  overflow:visible;
+  border-radius: 10rpx;
+  border: 1rpx solid #eee;
+  padding-left: 8rpx;
+  margin-top: 20rpx;
 }
 textarea{
   width: 60%;
@@ -171,4 +192,22 @@ picker .tip .arrow{
   left: 50%;
   margin-top: -6rpx;
   margin-left: -12rpx;
+}
+#hall{
+  margin-top: 20rpx;
+}
+.all_price{
+  padding: 10rpx 0;
+}
+.detail{
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.detailes{
+  font-size: 26rpx;
+  line-height: 36rpx;
+  width: 60%;
+  position: absolute;
+  top: 13rpx;
+  left: 25%;
 }

@@ -57,7 +57,7 @@ Page({
   },
   location: function() {  //定位
     wx.navigateTo({
-      url: '../map/map'
+      url: 'map/map'
     })
   }
 })

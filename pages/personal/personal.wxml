@@ -1,16 +1,16 @@
 <!--personal.wxml-->
 <view>
-  <view  class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <view class="userinfo">
+    <image class="userinfo-avatar" bindtap="personalCenter" src="{{imgsrc}}" background-size="cover"></image>
     <view class="username">
-      <text>{{userInfo.nickName}}</text>
+      <text>{{userInfo.username}}</text>
     </view>
     <view class="something">
       <view>
         <image src="http://ol58x6i5t.bkt.clouddn.com/images/app/vip.png"></image>
-        <text>普通会员</text>
+        <text>{{userInfo.identify}}</text>
       </view>
-      <view>
+      <view bindtap="personalCenter">
         <image src="http://ol58x6i5t.bkt.clouddn.com/images/app/personalcenter.png"></image>
         <text>个人主页</text>
       </view>
@@ -19,16 +19,16 @@
   <view class="order">
     <view class="firstLine">
       <text>我的订单</text>
-      <text class="all">全部订单  > </text>
+      <text class="all" data-id="all" bindtap="myOrder" >全部订单  > </text>
     </view>
     <view class="flex-wrp">
-      <view class="flex-item" id="0" bindtap="toChoose">
+      <view class="flex-item" data-id="1" bindtap="myOrder">
         <image src="../../images/pack.png"></image>外卖订单
       </view>
-      <view>
+      <view class="flex-item" data-id="2" bindtap="myOrder">
         <image src="../../images/eat1.png"/>堂食订单
       </view>
-      <view class="flex-item" id="1" bindtap="toChoose">
+      <view class="flex-item" data-id="3" bindtap="myOrder">
         <image src="../../images/comment.png"/>待评价
       </view>
     </view>
@@ -43,7 +43,7 @@
         <text>></text>
       </view>
     </view>
-    <view>
+    <view bindtap="myAddress">
       <view class="img_view">
         <image src="../../images/address.png"></image>
       </view>

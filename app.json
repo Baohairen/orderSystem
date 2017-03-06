@@ -1,10 +1,13 @@
 {
   "pages":[
-    "pages/personal/personal",
     "pages/index/index",
     "pages/choose/choose",
     "pages/shopCar/shopCar",
-    "pages/map/map"
+    "pages/personal/personal",
+    "pages/index/map/map",
+    "pages/personal/info/info",
+    "pages/personal/order/order",
+    "pages/personal/address/address"
   ],
   "window":{
     "backgroundTextStyle":"light",

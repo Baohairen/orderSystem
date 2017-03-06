@@ -1,0 +1,58 @@
+<view class="content">
+  <!-- 地址列表 -->
+  <view wx:if="{{list}}">
+    <view wx:for="{{addressList}}" class="address_list" wx:key="address" id="{{item.addresId}}" bindtap="updateAddress">
+      <text class="top">{{item.addressname}}，{{item.tel}}</text>
+      <text class="bottom">{{item.area}}  {{item.details}}</text>
+      <view class="choose" wx:if="{{chooseAddress}}" data-index="{{index}}" bindtap="choose" >
+        <block wx:if="{{isChoose == index ? true : false}}"><text class="triangle"></text><text class="right">√</text></block>
+      </view>
+    </view>
+    <button class="addNew" bindtap="addNew">添加新地址</button>
+  </view>
+  <!-- 添加地址 -->
+  <view wx:if="{{add}}">
+    <form bindsubmit="formAdd">
+      <view>
+        <text class="left">收货人</text>
+        <input type="text" class="right" name="addressname" placeholder="姓名" />
+      </view>
+      <view>
+        <text class="left">联系电话</text>
+        <input type="text" class="right" name="tel" placeholder="11位手机号" maxlength="11" />
+      </view>
+      <view class="position">
+        <text class="left">所在地区</text>
+        <input type="text" class="right" name="area" placeholder="所在地区" value="{{address.area}}" />
+        <image src="../../../images/location.png" bindtap="position"></image>
+      </view>
+      <view>
+        <textarea class="right" name="details" placeholder="详细地址" value="{{address.detail}}"></textarea>
+      </view>
+      <button formType="submit">保存</button>
+    </form>
+  </view>
+  <!-- 修改地址 -->
+  <view wx:if="{{updatePage}}">
+    <form bindsubmit="formUpdate">
+      <view>
+        <text class="left">收货人</text>
+        <input type="text" class="right" name="addressname" placeholder="姓名" value="{{update.addressname}}" />
+      </view>
+      <view>
+        <text class="left">联系电话</text>
+        <input type="text" class="right" name="tel" placeholder="11位手机号" value="{{update.tel}}" maxlength="11" />
+      </view>
+      <view class="position">
+        <text class="left">所在地区</text>
+        <input type="text" class="right" name="area" placeholder="所在地区" value="{{update.area}}" />
+        <image src="../../../images/location.png" bindtap="position"></image>
+      </view>
+      <view>
+        <textarea class="right" name="details" placeholder="详细地址" value="{{update.details}}"></textarea>
+      </view>
+      <text class="del" bindtap="delAddress">删除</text>
+      <button class="modify" formType="submit">保存</button>
+    </form>
+  </view>
+</view>

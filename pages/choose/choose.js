@@ -25,28 +25,53 @@ Page({
     orderlist:[],       //订单表
     fullprice:'0.00'    //产品总价
   },
+  checkChoose:function(){
+    var orderlist = app.globalData.orderlist;
+    if(orderlist.length<1){
+      this.setData({
+        orderlist:orderlist
+      })
+      return;
+    }
+    var list = this.data.foodlist;
+    for (var i = 0; i < list.length; i++) {
+      for (var j = 0; j < orderlist.length; j++) {
+        if(list[i].foodid==orderlist[j].foodid){
+          list[i].num = orderlist[j].num;
+        }
+      };
+    };
+    this.setData({
+      foodlist:list,
+      orderlist:orderlist
+    })
+  },
   onShow: function(){   //页面进入
     this.setData({
       curNav: 0
     })
     var that = this;
+    var time = Date.parse(new Date());
     wx.request({
       url: app.globalData.url,
       method: 'GET',
       data: {
-        api:'findAllFood'            //服务器端请求所有产品列表
+        api:'findAllFood',            //服务器端请求所有产品列表
+        time:time
       },
       header: {
         'Accept': 'application/json'
       },
       success: function(res) {
         if(res.data.res!='1'){
-          app.alerts(res.data.msg);
+          return app.alerts(res.data.msg);
         }
         that.setData({
           foodlist: res.data.data
         })
         that.actives();
+        that.checkChoose();
+        that.getFullPrice();
       }
     })
   },
@@ -57,13 +82,15 @@ Page({
       duration: 2000
     })
     var that = this;
+    var time = Date.parse(new Date());
     wx.request({
       url: app.globalData.url,
       method: 'GET',
       data: {
         api:'findFoodByFoodNum',
         foodnum1:this.data.curNav,
-        state:'1'
+        state:'1',
+        time:time
       },
       header: {
         'Accept': 'application/json'
@@ -71,7 +98,7 @@ Page({
       success: function(res) {
         wx.hideToast();
         if(res.data.res!='1'){
-          app.alerts(res.data.msg);
+          return app.alerts(res.data.msg);
         }
         that.setData({
           navRightItems: res.data.data
@@ -91,19 +118,21 @@ Page({
   foodsInfo:function(e){                     //通过产品id查询产品详情
     var foodid = e.currentTarget.dataset.id;
     var that = this;
+    var time = Date.parse(new Date());
     wx.request({
       url: app.globalData.url,
       method: 'GET',
       data: {
         api:'findFoodById',
-        foodid:foodid
+        foodid:foodid,
+        time:time
       },
       header: {
         'Accept': 'application/json'
       },
       success: function(res) {
         if(res.data.res!='1'){
-          app.alerts(res.data.msg);
+          return app.alerts(res.data.msg);
         }
         that.setData({
           foodinfo: res.data.data[0]
@@ -123,11 +152,24 @@ Page({
     var list = this.data.foodlist;
     list[index].num = num;
     var order = this.data.orderlist;
-    order.push(list[index]);
+    if(order.length<1){
+      order.push(list[index]);
+    }else{
+      for (var i = 0; i < order.length; i++) {
+        if(order[i].foodid == list[index].foodid){
+          order[i] = list[index];
+          break;
+        }
+        if(order[order.length-1].foodid != list[index].foodid){
+          order.push(list[index]);
+        }
+      };
+    }
     this.setData({
       foodlist: list,
       orderlist:order
     })
+    app.globalData.orderlist = order;
     this.getFullPrice();
   },
   minus:function(e){                  //减少产品数量
@@ -140,7 +182,10 @@ Page({
     var id = e.currentTarget.dataset.id;
     for (var i = 0; i < order.length; i++) {
       if(order[i].foodid == id){
-        order.splice(i,1);
+        order[i].num = num;
+        if(num == 0){
+          order.splice(i,1);
+        }
         break;
       }
     };
@@ -148,6 +193,7 @@ Page({
       foodlist: list,
       orderlist:order
     })
+    app.globalData.orderlist = order;
     this.getFullPrice();
   },
   getFullPrice:function(){               //获取用户所选的产品总价

@@ -20,7 +20,7 @@
               <text class="radis" id="minus" bindtap="minus" data-id="{{list.foodid}}" data-index="{{i}}">－</text>
               <text class="num">{{list.num}}</text>
             </view>
-            <text class="radis" id="plus" bindtap="plus" data-index="{{i}}">＋</text>
+            <text class="radis" id="plus" bindtap="plus" data-id="{{list.foodid}}" data-index="{{i}}">＋</text>
           </view>
         </view>
       </view>
