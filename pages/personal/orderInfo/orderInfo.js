@@ -1,55 +1,22 @@
 //获取应用实例
 var app = getApp()
 Page({
-  data: {
-    stateData:[{                      //订单状态与类型
-      name:'全部',
-      state:'all'
-    },{
-      name:'外卖订单',
-      state:'1'
-    },{
-      name:'堂食订单',
-      state:'2'
-    },{
-      name:'待评价',
-      state:'3'
-    },{
-      name:'已完成',
-      state:'4'
-    }],
-    curNav:'all',
-    indentList:[]
+  data:{
+    orderInfo:{},                  //订单详情
+    findtype:''                    //查找类型
   },
-  onLoad: function (option) {              //页面加载获取查询方式
+  onLoad:function(option){        //页面加载获取订单详情
     wx.setNavigationBarTitle({
-      title: '我的订单'
+      title: '订单详情'
     })
-    var findtype = option.findtype;
-    if(!findtype){
-      findtype = 'all';
-    }
-    this.finds(findtype);
-  },
-  findOrder:function(e){                   //根据条件查找
-    this.finds(e.currentTarget.dataset.id);
-  },
-  finds:function(findtype){                   //定义查找订单函数
+    var that = this;
     var time = Date.parse(new Date());
     var param = {
-      userid:app.globalData.userInfo.userid,
+      orderid:option.orderid,
+      api:'findIndentidById',
       time:time
-    };
-    param.api = 'findAllOrder';
-    if(findtype == '1' || findtype == '2'){
-      param.api = 'findOrderByState';
-      param.state = findtype;
     }
-    if (findtype == '3' || findtype == '4') {
-      param.api = 'findOrderByProsess';
-      param.prosess = findtype;
-    }
-    var that = this;
+    var findtype = option.findtype;
     wx.request({
       url: app.globalData.url,
       method: 'GET',
@@ -58,18 +25,17 @@ Page({
         'Accept': 'application/json'
       },
       success: function(res) {
-        console.log(res);
         if(res.data.res!='1'){
           return app.alerts(res.data.msg);
         }
-        var indentList = res.data.data;
-        for (var i = 0; i < indentList.length; i++) {
-          var orderlist = JSON.parse(indentList[i].orderlist);
-          indentList[i].orderlist = orderlist;
-        };
+        var orderInfo = res.data.data;
+        var orderlist = JSON.parse(orderInfo.orderlist);
+        var orderAddress = JSON.parse(orderInfo.address);
+        orderInfo.orderlist = orderlist;
+        orderInfo.address = orderAddress;
         that.setData({
-          curNav:findtype,
-          indentList:indentList
+          orderInfo:orderInfo,
+          findtype:findtype
         })
       }
     })
@@ -131,7 +97,9 @@ Page({
           showCancel:false,
           success: function(res) {
             if (res.confirm) {
-              that.finds(that.data.curNav);
+              wx.navigateTo({
+                url: '../order/order?findtype='+that.data.findtype
+              })
             }
           }
         })  
@@ -148,12 +116,7 @@ Page({
   },
   toComment:function(e){           //评价
     wx.navigateTo({
-      url: '../comment/comment?orderid='+e.currentTarget.dataset.id+'&state='+e.currentTarget.dataset.state+'&findtype='+this.data.curNav
+      url: '../comment/comment?orderid='+e.currentTarget.dataset.id+'&state='+e.currentTarget.dataset.state+'&findtype='+this.data.findtype
     })
   },
-  toOrderInfo:function(e){          //订单详情
-    wx.navigateTo({
-      url: '../orderInfo/orderInfo?orderid='+e.currentTarget.dataset.id+'&findtype='+this.data.curNav
-    })
-  }
 })

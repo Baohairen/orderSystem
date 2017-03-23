@@ -1,0 +1,84 @@
+.goods{
+  background-color: white;
+}
+.good_list{
+  padding: 14rpx 28rpx;
+  border-bottom: 2rpx solid #eee;
+  position: relative;
+}
+.good_list image{
+  width: 200rpx;
+  height: 200rpx;
+  display: inline-block;
+}
+.good_list .goods_infos{
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.goods_infos .title{
+  display: block;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+}
+/*产品详情*/
+.back{
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.foods_info{
+  width: 92%;
+  height: 90%;
+  position: absolute;
+  left: 4%;
+  top: 5%;
+  background-color: white;
+  z-index: 11;
+  box-sizing:border-box;
+  padding: 20rpx;
+}
+.foods_info .titles{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.foods_info .titles text{
+  float: right;
+}
+.foods_info image{
+  width: 400rpx;
+  height: 400rpx;
+  margin: 0 auto;
+  display: block;
+}
+.foods_info .price{
+  font-weight: normal;
+  height:64rpx;
+  line-height:64rpx;
+  font-size: 34rpx;
+  margin-top: 55rpx;
+  position: relative;
+}
+.collect{
+  position: absolute;
+  right: 30rpx;
+  top: -55rpx;
+}
+.collect image{
+  width: 70rpx;
+  height: 55rpx;
+}
+.foods_info text{
+  display: block;
+}
+.foods_info text.red{
+  display: inline-block;
+}
+.foods_info .food_infos{
+  height: auto;
+  line-height: 54rpx;
+}

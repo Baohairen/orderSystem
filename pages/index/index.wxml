@@ -21,11 +21,15 @@
 </view>
 <view class="comment">
   <text class="firstLine">最新评论</text>
-  <text class="more">更多 ></text>
+  <text class="more" bindtap="moreComment">更多 ></text>
   <view wx:for="{{comments}}" wx:key="comments" class="person">
-    <text>{{item.name}}</text>
-    <text class="more">{{item.star}}</text>
-    <view class="colors">{{item.contents}}</view>
-    <text class="time colors">{{item.time}}</text>
+    <text>{{item.userName}}</text>
+    <text class="five image" wx:if="{{item.star=='5'}}"></text>
+    <text class="four image" wx:elif="{{item.star=='4'}}"></text>
+    <text class="three image" wx:elif="{{item.star=='3'}}"></text>
+    <text class="two image" wx:elif="{{item.star=='2'}}"></text>
+    <text class="one image" wx:else></text>
+    <view class="colors">{{item.content}}</view>
+    <text class="time colors">{{item.createtime}}</text>
   </view>
 </view>

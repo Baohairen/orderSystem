@@ -1,0 +1,28 @@
+<view class="content">
+  <view class="title">
+    <image src="http://ol58x6i5t.bkt.clouddn.com/images/logo.png"></image>
+    <text>必胜客欢乐餐厅</text>
+  </view>
+  <view class="star">
+    <text class="left">商品质量</text>
+    <view class="right">
+      <image wx:for="{{shopStar}}" wx:key="img" data-index="{{index}}" data-id="shop" src="{{item.starSrc}}" bindtap="comment"></image>
+    </view>
+  </view>
+  <view class="star">
+    <text class="left">服务质量</text>
+    <view class="right">
+      <image wx:for="{{serviceStar}}" wx:key="img" data-index="{{index}}" data-id="service" src="{{item.starSrc}}" bindtap="comment"></image>
+    </view>
+  </view>
+  <view class="star" wx:if="{{state=='1'}}">
+    <text class="left">配送服务</text>
+    <view class="right">
+      <image wx:for="{{deliveryStar}}" wx:key="img" data-index="{{index}}" data-id="delivery" src="{{item.starSrc}}" bindtap="comment"></image>
+    </view>
+  </view>
+</view>
+<form bindsubmit="commentSubmit">
+  <textarea placeholder="点评下吧，您的意见很重要哦" name="content" />
+  <button class="commentSubmit" formType="submit">提交评价</button>
+</form>

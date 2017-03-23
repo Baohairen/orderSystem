@@ -1,0 +1,97 @@
+scroll-view{
+  height: 100%;
+}
+.summary{
+  border-bottom: 2rpx solid #eee;
+  background-color: white;
+  margin-bottom: 36rpx;
+  padding: 16rpx 0;
+}
+.left{
+  width: 30%;
+  display: inline-block;
+  border-right: 5rpx solid #eee;
+}
+.left .all{
+  line-height: 110rpx;
+  font-size: 70rpx;
+  color: rgb(255,45,75);
+  text-align: center;
+}
+.left .lenth{
+  text-align: center;
+}
+.left .image{
+  display: inline-block;
+  width: 90%;
+  height: 21px;
+  margin-top: 13rpx;
+  margin-left: 5%;
+  background: url(http://ol58x6i5t.bkt.clouddn.com/images/stars.png) no-repeat;
+  background-size: 100%;
+}
+.right{
+  width: 66%;
+  display: inline-block;
+  padding: 0 1.5%;
+}
+.right text{
+  line-height: 40rpx;
+}
+.right .star{
+  color: #888;
+}
+.right .num{
+  color: rgb(255,45,75);
+}
+.right progress{
+  width: 82%;
+  display: inline-block;
+  margin: 0 3%;
+  position: relative;
+  top: -6rpx; 
+}
+.comment{
+  width: 100%;
+  background: white;
+  box-sizing:border-box;
+  margin-bottom: 30rpx;
+}
+.comment .image{
+  float: right;
+  width: 135px;
+  height: 21px;
+  margin-top: 26rpx;
+  background: url(http://ol58x6i5t.bkt.clouddn.com/images/stars.png) no-repeat;
+  background-size: 100%;
+}
+.four{
+  background-position: 27px 0!important;
+}
+.three{
+  background-position: 54px 0!important;
+}
+.two{
+  background-position: 81px 0!important;
+}
+.one{
+  background-position: 108px 0!important;
+}
+.person{
+  padding: 0 20rpx;
+  border-top: 2rpx solid #eee;
+}
+.comment .more{
+  float: right;
+  margin-right: 20rpx;
+}
+.person view{
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+.person .time{
+  display: block;
+  text-align: right;
+  height: 60rpx;
+  line-height: 60rpx;
+}

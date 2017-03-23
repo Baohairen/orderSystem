@@ -34,6 +34,8 @@ text{
   width: 75%;
   height: 100%;
   background-color: white;
+  padding-bottom: 120rpx;
+  box-sizing:border-box;
 }
 .nav_right .good_list{
   padding-top: 14rpx;
@@ -166,6 +168,17 @@ text{
   height:64rpx;
   line-height:64rpx;
   font-size: 34rpx;
+  margin-top: 55rpx;
+  position: relative;
+}
+.collect{
+  position: absolute;
+  right: 30rpx;
+  top: -55rpx;
+}
+.collect image{
+  width: 70rpx;
+  height: 55rpx;
 }
 .foods_info text{
   display: block;

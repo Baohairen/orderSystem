@@ -1,0 +1,53 @@
+page{
+  background-color: white;
+}
+.content{
+  padding: 25rpx;
+  position: relative;
+}
+.title image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.title text{
+  display: inline-block;
+  line-height: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 125rpx;
+}
+.star{
+  margin-top: 10rpx;
+}
+.star text{
+  line-height: 70rpx;
+  color: #888;
+  font-size: 30rpx;
+}
+.star view{
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.star image{
+  width: 27px;
+  height: 21px;
+  position: relative;
+  top: 3px;
+}
+textarea{
+  text-indent: 10rpx;
+  padding: 25rpx;
+}
+.textarea-placeholder{
+  font-size: 28rpx;
+}
+.commentSubmit{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-radius: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+}

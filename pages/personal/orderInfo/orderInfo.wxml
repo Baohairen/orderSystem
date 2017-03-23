@@ -1,0 +1,39 @@
+<view class="prosess">
+  <text>{{orderInfo.processName}}</text>
+  <image src="http://ol58x6i5t.bkt.clouddn.com/images/smile.png"></image>
+</view>
+<view wx:if="{{orderInfo.state=='1'}}" class="address_list">
+  <text class="top">收货人：{{orderInfo.address.addressname}}<text>{{orderInfo.address.tel}}</text></text>
+  <text class="bottom">收货地址：{{orderInfo.address.area}}  {{orderInfo.address.details}}</text>
+</view>
+<view class="indent_list">
+  <view class="title">
+    <image src="http://ol58x6i5t.bkt.clouddn.com/images/logo.png"></image>
+    <text>必胜客欢乐餐厅</text>
+  </view>
+  <view class="good_list" wx:for="{{orderInfo.orderlist}}" wx:for-item="list" wx:key="goods_info">
+    <image src="{{list.logourl}}"></image>
+    <view class="goods_infos">
+      <text class="titles">{{list.title}}</text>
+      <view class="price">
+        <text class="">¥ {{list.price}}</text>
+        <text class="num">X{{list.num}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="allPrice"><text>订单总价：¥{{orderInfo.fullPrice}}</text></view>
+</view>
+<view class="btn" wx:if="{{orderInfo.prosess=='0'}}">
+  <text class="comment" data-id="{{orderInfo.orderid}}" data-remind="true" data-remark="顾客提醒接单" bindtap="remind">提醒商家</text>
+  <text data-id="{{orderInfo.orderid}}" bindtap="cancel">取消订单</text>
+</view>
+<view class="btn" wx:elif="{{orderInfo.prosess=='1'}}">
+  <text data-id="{{orderInfo.orderid}}" data-remark="顾客已催单" bindtap="remind">催单</text>
+</view>
+<view class="btn" wx:elif="{{orderInfo.prosess=='2'}}"></view>
+<view class="btn" wx:elif="{{orderInfo.prosess=='3'}}">
+  <text data-id="{{orderInfo.orderid}}" data-state="{{orderInfo.state}}" bindtap="toComment">去评价</text>
+</view>
+<view class="btn" wx:else>
+  <text data-id="{{orderInfo.orderid}}" bindtap="delOrder">删除</text>
+</view>

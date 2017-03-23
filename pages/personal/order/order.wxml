@@ -1,33 +1,39 @@
-<view class="header">
+ <view class="header">
   <text wx:for="{{stateData}}" data-id="{{item.state}}" class="{{curNav == item.state ? 'active' : ''}}" bindtap="findOrder" wx:key="order">{{item.name}}</text>
 </view>
 <view class="indent">
   <view class="indent_list" wx:for="{{indentList}}" wx:key="indentList">
-    <view class="title">
-      <image src="http://ol58x6i5t.bkt.clouddn.com/images/logo.png"></image>
-      <text>必胜客欢乐餐厅</text>
-      <text class="red">{{item.processName}}</text>
-    </view>
-    <view class="good_list" wx:for="{{item.orderlist}}" wx:for-item="list" wx:key="goods_info">
-      <image src="{{list.logourl}}"></image>
-      <view class="goods_infos">
-        <text class="titles">{{list.title}}</text>
-        <view class="price">
-          <text class="">¥ {{list.price}}</text>
-          <text class="num">X{{list.num}}</text>
+    <view data-id="{{item.orderid}}" bindtap="toOrderInfo">
+      <view class="title">
+        <image src="http://ol58x6i5t.bkt.clouddn.com/images/logo.png"></image>
+        <text>必胜客欢乐餐厅</text>
+        <text class="red">{{item.processName}}</text>
+      </view>
+      <view class="good_list" wx:for="{{item.orderlist}}" wx:for-item="list" wx:key="goods_info">
+        <image src="{{list.logourl}}"></image>
+        <view class="goods_infos">
+          <text class="titles">{{list.title}}</text>
+          <view class="price">
+            <text class="">¥ {{list.price}}</text>
+            <text class="num">X{{list.num}}</text>
+          </view>
         </view>
       </view>
+      <view class="allPrice"><text>合计：{{item.fullPrice}}</text></view>
     </view>
-    <view class="allPrice"><text>合计：{{item.fullPrice}}</text></view>
     <view class="btn" wx:if="{{item.prosess=='0'}}">
-      <text class="comment">提醒商家</text>
-      <text>取消订单</text>
+      <text class="comment" data-id="{{item.orderid}}" data-remind="true" data-remark="顾客提醒接单" bindtap="remind">提醒商家</text>
+      <text data-id="{{item.orderid}}" bindtap="cancel">取消订单</text>
     </view>
     <view class="btn" wx:elif="{{item.prosess=='1'}}">
-      <text>催单</text>
+      <text data-id="{{item.orderid}}" data-remark="顾客已催单" bindtap="remind">催单</text>
+    </view>
+    <view class="btn" wx:elif="{{item.prosess=='2'}}"></view>
+    <view class="btn" wx:elif="{{item.prosess=='3'}}">
+      <text data-id="{{item.orderid}}" data-state="{{item.state}}" bindtap="toComment">去评价</text>
     </view>
     <view class="btn" wx:else>
-      <text>去评价</text>
+      <text data-id="{{item.orderid}}" bindtap="delOrder">删除</text>
     </view>
   </view>
 </view>

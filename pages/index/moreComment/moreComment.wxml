@@ -1,0 +1,28 @@
+ <scroll-view scroll-y="true" bindscrolltolower="refresh">
+  <view class="summary">
+    <view class="left">
+      <view class="all">{{summary}}</view>
+      <view class="lenth">{{lengths}}条评论</view>
+      <text class="image" style="background-position:{{position}}"></text>
+    </view>
+    <view class="right">
+      <view wx:for="{{starType}}" wx:key="starType">
+        <text class="star">{{starType.length-index}}</text>
+        <progress percent="{{item.percent}}" color="rgb(255,45,75)" stroke-width="10"/>
+        <text class="num">{{item.num}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="comment">
+    <view wx:for="{{comments}}" wx:key="comments" class="person">
+    <text>{{item.userName}}</text>
+    <text class="five image" wx:if="{{item.star=='5'}}"></text>
+    <text class="four image" wx:elif="{{item.star=='4'}}"></text>
+    <text class="three image" wx:elif="{{item.star=='3'}}"></text>
+    <text class="two image" wx:elif="{{item.star=='2'}}"></text>
+    <text class="one image" wx:else></text>
+    <view class="colors">{{item.content}}</view>
+    <text class="time colors">{{item.createtime}}</text>
+  </view>
+  </view>
+</scroll-view>

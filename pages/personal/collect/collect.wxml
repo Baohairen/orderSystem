@@ -1,0 +1,28 @@
+<view wx:if="{{collect.length=='0'}}" class="container">
+  <text class="colors">收藏夹为空哦，快去挑选吧</text>
+</view>
+<view class="goods">
+  <view class="good_list" wx:for="{{collect}}" wx:key="collect" data-id="{{item.foodid}}" bindtap="foodsInfo">
+    <image src="{{item.logourl}}"></image>
+    <view class="goods_infos">
+      <text class="title">{{item.title}}</text>
+      <view><text class="red">¥ {{item.price}}</text><text>/份</text></view>
+    </view>
+  </view>
+</view>
+<view hidden="{{foodinfo.length==0}}">
+  <view class="back"></view>
+  <view class="foods_info">
+    <view class="titles">{{foodinfo.title}}<text bindtap="close">X</text></view>
+    <image src="{{foodinfo.logourl}}"></image>
+    <view class="price">价格：<text class="red">{{foodinfo.price}}元/份</text>
+      <view class="collect" bindtap="cancelCollect">
+        <image src="{{iscollect.imgSrc}}"></image>
+        <text>{{iscollect.text}}</text>
+      </view>
+    </view>
+    <text wx:if="{{foodinfo.taste!=null}}">评价：{{foodinfo.taste}}</text>
+    <text wx:if="{{foodinfo.describe!=null}}">描述：{{foodinfo.describe}}</text>
+    <text class="food_infos">详情：{{foodinfo.foodinfo}}</text>
+  </view>
+</view>

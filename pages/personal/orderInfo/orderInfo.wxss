@@ -1,14 +1,40 @@
-.header{
+.prosess{
+  background-color: red;
+  width: 100%;
+  height: 200rpx;
+}
+.prosess text{
+  color: white;
+  line-height: 200rpx;
+  margin-left: 15%;
+  font-weight: bold;
+}
+.prosess image{
+  width: 150rpx;
+  height: 150rpx;
+  float: right;
+  margin-top: 25rpx;
+  margin-right: 15%;
+}
+.address_list{
+  padding: 20rpx;
   background-color: white;
-  padding: 0 20rpx;
+  border-bottom: 1rpx solid #eee;
+  position: relative;
 }
-.header text{
-  padding: 0 15rpx;
-  display: inline-block;
+.address_list text{
+  display: block;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  color: #888;
+  opacity: 0.8;
 }
-.header text.active{
-  color: red;
-  border-bottom: 6rpx solid red;
+.address_list .top text{
+  float: right;
+}
+.address_list text.bottom{
+  height: auto;
 }
 .indent_list{
   background-color: white;
@@ -87,8 +113,12 @@
 }
 .btn{
   width: 50%;
-  margin-left: 46%;
+  padding-left: 46%;
+  padding-right: 4%;
   height: 110rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
 }
 .btn text{
   width: 44%;

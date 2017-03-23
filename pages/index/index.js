@@ -1,6 +1,6 @@
-//index.js
 //获取应用实例
 var app = getApp()
+var util = require('../../utils/util.js');
 Page({
   data: {
     imgUrls: [
@@ -30,21 +30,43 @@ Page({
       left:'店铺地址：',
       right:'高新区长江路463号绿宝广场一层'
     }],
-    comments:[{
-      name:'张三',
-      star:'⭐️⭐️⭐️⭐️',
-      contents:'还好',
-      time:'2017-01-13 12:00:23'
-    },{
-      name:'李四',
-      star:'⭐️⭐️⭐️⭐️⭐️',
-      contents:'好评好评好评好评好好评评好评好评好评好评好评好评好评好评好评好评好评好评好评好评好评好评好评好评',
-      time:'2017-01-13 11:00:23'
-    }]
+    comments:[]         //评论
   },
-  onLoad: function () {
+  onLoad: function () {             //页面加载获取评论
+    var that = this;
+    var time = Date.parse(new Date());
+    var param = {
+      state:'1',
+      api:'findCommentByState',
+      time:time
+    }
+    wx.request({
+      url: app.globalData.url,
+      method: 'GET',
+      data: param,
+      header: {
+        'Accept': 'application/json'
+      },
+      success: function(res) {
+        if(res.data.res!='1'){
+          return app.alerts(res.data.msg);
+        }
+        var comments = res.data.data;
+        wx.setStorage({
+          key:"comments",
+          data:comments
+        })
+        comments = comments.slice(0,5);
+        for (var i = 0; i < comments.length; i++) {
+          comments[i].createtime = util.formatTime(comments[i].createtime);
+        };
+        that.setData({
+          comments:comments
+        })
+      }
+    })
   },
-  toChoose: function(e){
+  toChoose: function(e){          //开始选购
     app.globalData.ways = e.currentTarget.id;
     wx.switchTab({
       url: '/pages/choose/choose'
@@ -58,6 +80,11 @@ Page({
   location: function() {  //定位
     wx.navigateTo({
       url: 'map/map'
+    })
+  },
+  moreComment:function(){            //更多评论展示
+    wx.navigateTo({
+      url: 'moreComment/moreComment'
     })
   }
 })

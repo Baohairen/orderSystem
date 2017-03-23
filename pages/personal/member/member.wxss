@@ -1,0 +1,45 @@
+.img_div{
+  padding: 20rpx;
+  position: relative;
+}
+.img_div image{
+  width: 100%;
+  height: 450rpx;
+}
+.img_div text{
+  display: block;
+  text-align: center;
+}
+.number{
+  position: absolute;
+  text-align: right;
+  top: 20rpx;
+  right: 40rpx;
+  color:rgb(243,229,101);
+}
+.right{
+  background-color: white;
+  padding: 20rpx 30rpx;
+  padding-bottom: 50rpx;
+}
+.right .first{
+  border-bottom: 2rpx solid #eee;
+  line-height: 90rpx;
+  color: #000;
+  margin-bottom:20rpx; 
+  font-size: 38rpx;
+}
+.right view{
+  line-height: 70rpx;
+  color: #888;
+  font-size: 34rpx;
+}
+.real{
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  background-color: white;
+  margin-top: 30rpx;
+}
+.real text{
+  float: right;
+}

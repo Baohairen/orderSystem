@@ -1,0 +1,12 @@
+<view class="img_div">
+  <image src="http://ol58x6i5t.bkt.clouddn.com/images/vip.png"></image>
+  <text>您尚未开通会员，无法享受会员特权</text>
+  <text wx:if="{{identify=='超级会员'}}" class="number">{{number}}</text>
+</view>
+<view class="right">
+  <view class="first">会员特权</view>
+  <view>充值300送20</view>
+  <view>充值500送50</view>
+  <view>充值800送100</view>
+</view>
+<view wx:if="{{identify=='普通会员'}}" bindtap="openVIP" class="real">开通会员<text>></text></view>

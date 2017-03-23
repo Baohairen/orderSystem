@@ -6,7 +6,7 @@
       <text>{{userInfo.username}}</text>
     </view>
     <view class="something">
-      <view>
+      <view bindtap="myMember">
         <image src="http://ol58x6i5t.bkt.clouddn.com/images/app/vip.png"></image>
         <text>{{userInfo.identify}}</text>
       </view>
@@ -34,7 +34,7 @@
     </view>
   </view>
   <view class="servies">
-    <view>
+    <view bindtap="myCollect">
       <view class="img_view">
         <image src="../../images/collect.png"></image>
       </view>
@@ -52,7 +52,7 @@
         <text>></text>
       </view>
     </view>
-    <view>
+    <view bindtap="myMember">
       <view class="img_view">
         <image src="../../images/vip.png"></image>
       </view>

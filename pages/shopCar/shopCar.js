@@ -187,7 +187,7 @@ Page({
     var status = '';
     var payway = '';
     var inviteTime = '';
-    var processName = '待出餐';
+    var processName = '待接单';
     if(this.data.model=='1'){
       if(this.data.shops){
         var latitude = address.latitude;                //纬度
@@ -222,10 +222,8 @@ Page({
       }
       if(this.data.payway.online){
         payway = 'online';
-        processName = '待支付';
       }else{
         payway = 'offline';
-        processName = '待收货';
       }
     } 
     address = JSON.stringify(address);

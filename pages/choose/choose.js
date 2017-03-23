@@ -23,9 +23,14 @@ Page({
     foodinfo:[],        //产品详情展示
     foodlist:[],        //产品id列表
     orderlist:[],       //订单表
-    fullprice:'0.00'    //产品总价
+    fullprice:'0.00',    //产品总价
+    collect:{
+      imgSrc:'../../images/star.png',       //图片地址
+      text:'收藏'       //是否收藏
+    },
+    collectFood:[]                 //收藏的商品
   },
-  checkChoose:function(){
+  checkChoose:function(){                //判断是否已加入购物车
     var orderlist = app.globalData.orderlist;
     if(orderlist.length<1){
       this.setData({
@@ -36,7 +41,7 @@ Page({
     var list = this.data.foodlist;
     for (var i = 0; i < list.length; i++) {
       for (var j = 0; j < orderlist.length; j++) {
-        if(list[i].foodid==orderlist[j].foodid){
+        if(list[i].foodid == orderlist[j].foodid){
           list[i].num = orderlist[j].num;
         }
       };
@@ -44,6 +49,27 @@ Page({
     this.setData({
       foodlist:list,
       orderlist:orderlist
+    })
+  },
+  checkCollect:function(isCollect){             //判断是否已经收藏
+    var list = this.data.navRightItems;
+    if(isCollect){
+      var collectFood = this.data.collectFood;
+    }else{
+      var collectFood = JSON.parse(app.globalData.userInfo.collect);
+    }
+
+    for (var i = 0; i < list.length; i++) {
+      list[i].isCollect = '0';
+      for (var k = 0; k < collectFood.length; k++) {
+        if(collectFood[k].foodid == list[i].foodid){
+          list[i].isCollect = '1';
+        }
+      };
+    }
+    this.setData({
+      navRightItems:list,
+      collectFood:collectFood
     })
   },
   onShow: function(){   //页面进入
@@ -70,8 +96,6 @@ Page({
           foodlist: res.data.data
         })
         that.actives();
-        that.checkChoose();
-        that.getFullPrice();
       }
     })
   },
@@ -103,6 +127,9 @@ Page({
         that.setData({
           navRightItems: res.data.data
         })
+        that.checkCollect();
+        that.checkChoose();
+        that.getFullPrice();
       }
     })
   },
@@ -117,6 +144,8 @@ Page({
   },
   foodsInfo:function(e){                     //通过产品id查询产品详情
     var foodid = e.currentTarget.dataset.id;
+    var isCollect = e.currentTarget.dataset.collect;
+    var collect = this.data.collect; 
     var that = this;
     var time = Date.parse(new Date());
     wx.request({
@@ -134,8 +163,20 @@ Page({
         if(res.data.res!='1'){
           return app.alerts(res.data.msg);
         }
+        if(isCollect != '0'){
+          collect = {
+            imgSrc:'../../images/star_active.png',       
+            text:'取消收藏'       
+          }
+        }else{
+          collect = {
+            imgSrc:'../../images/star.png',       
+            text:'收藏'       
+          }
+        }
         that.setData({
-          foodinfo: res.data.data[0]
+          foodinfo: res.data.data[0],
+          collect:collect
         })
       }
     })
@@ -215,6 +256,51 @@ Page({
     app.globalData.fullPrice = this.data.fullprice;
     wx.switchTab({
       url: '/pages/shopCar/shopCar'
+    })
+  },
+  collect:function(){                 //收藏或取消收藏
+    var collectFood = this.data.foodinfo;
+    var that = this;
+    var time = Date.parse(new Date());
+    if(that.data.collect.text == '收藏'){
+      var api = 'addCollect';
+    }else{
+      var api = 'cancelCollect';
+    }
+    wx.request({
+      url: app.globalData.url,
+      method: 'GET',
+      data: {
+        api:api,
+        userid:app.globalData.userInfo.userid,
+        collect:collectFood,
+        time:time
+      },
+      header: {
+        'Accept': 'application/json'
+      },
+      success: function(res) {
+        if(res.data.res!='1'){
+          return app.alerts(res.data.msg);
+        }
+        var collectFood = JSON.parse(res.data.data);
+        if(that.data.collect.text == '收藏'){
+          var collect = {
+            imgSrc:'../../images/star_active.png',       
+            text:'取消收藏'       
+          }
+        }else{
+          var collect = {
+            imgSrc:'../../images/star.png',       
+            text:'收藏'       
+          }
+        }
+        that.setData({
+          collect: collect,
+          collectFood:collectFood
+        })
+        that.checkCollect('0');
+      }
     })
   }
 })

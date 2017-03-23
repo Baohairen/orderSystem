@@ -7,7 +7,7 @@
   <scroll-view scroll-y="true" class="nav_right">
     <view wx:if="{{navRightItems}}">
       <view class="good_list" wx:for="{{navRightItems}}" wx:key="goods_info">
-        <view class="img_view" data-id="{{item.foodid}}" bindtap="foodsInfo">
+        <view class="img_view" data-id="{{item.foodid}}" data-collect="{{item.isCollect}}" bindtap="foodsInfo">
           <text hidden="{{!item.taste}}" class="taste">{{item.taste}}</text>
           <image src="{{item.logourl}}"></image>
         </view>
@@ -44,7 +44,12 @@
     <view class="foods_info">
       <view class="titles">{{foodinfo.title}}<text bindtap="close">X</text></view>
       <image src="{{foodinfo.logourl}}"></image>
-      <view class="price">价格：<text class="red">{{foodinfo.price}}元/份</text></view>
+      <view class="price">价格：<text class="red">{{foodinfo.price}}元/份</text>
+        <view class="collect" bindtap="collect">
+          <image src="{{collect.imgSrc}}"></image>
+          <text>{{collect.text}}</text>
+        </view>
+      </view>
       <text wx:if="{{foodinfo.taste!=null}}">评价：{{foodinfo.taste}}</text>
       <text wx:if="{{foodinfo.describe!=null}}">描述：{{foodinfo.describe}}</text>
       <text class="food_infos">详情：{{foodinfo.foodinfo}}</text>

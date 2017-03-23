@@ -63,8 +63,28 @@ swiper-item image{
 	margin-bottom: 30rpx;
 }
 .comment .more{
+  float: right;
+  margin-right: 20rpx;
+}
+.comment .image{
 	float: right;
-	margin-right: 20rpx;
+	width: 135px;
+	height: 21px;
+	margin-top: 26rpx;
+	background: url(http://ol58x6i5t.bkt.clouddn.com/images/stars.png) no-repeat;
+	background-size: 100%;
+}
+.four{
+	background-position: 27px 0!important;
+}
+.three{
+	background-position: 54px 0!important;
+}
+.two{
+	background-position: 81px 0!important;
+}
+.one{
+	background-position: 108px 0!important;
 }
 .person{
 	border-top: 2rpx solid #eee;

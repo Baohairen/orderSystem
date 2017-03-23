@@ -5,9 +5,14 @@
     "pages/shopCar/shopCar",
     "pages/personal/personal",
     "pages/index/map/map",
+    "pages/index/moreComment/moreComment",
     "pages/personal/info/info",
     "pages/personal/order/order",
-    "pages/personal/address/address"
+    "pages/personal/address/address",
+    "pages/personal/comment/comment",
+    "pages/personal/orderInfo/orderInfo",
+    "pages/personal/collect/collect",
+    "pages/personal/member/member"
   ],
   "window":{
     "backgroundTextStyle":"light",
