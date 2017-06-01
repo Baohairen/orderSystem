@@ -56,6 +56,9 @@ Page({
     if(isCollect){
       var collectFood = this.data.collectFood;
     }else{
+      if (!app.globalData.userInfo.collect) {
+        return;
+      }
       var collectFood = JSON.parse(app.globalData.userInfo.collect);
     }
 

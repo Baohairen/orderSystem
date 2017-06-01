@@ -52,8 +52,8 @@ Page({
         };
         var lengths = allcomment.length;
         summary = summary/lengths;
-
         var position = (5-summary)/5*85;
+        summary = summary.toFixed(2);
         var comments = allcomment.slice(0,5);
         console.log(starType);
         that.setData({
